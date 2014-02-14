@@ -31,9 +31,9 @@ object stagedBuild extends Build {
   val sharedSettings = Project.defaultSettings ++ Seq(
     scalaVersion := "2.10.3",
     libraryDependencies ++= List(
-      "com.typesafe.slick" %% "slick" % "2.0.0",
+      "com.typesafe.slick" %% "slick" % "2.0.1-RC1",
       "org.slf4j" % "slf4j-nop" % "1.6.4",
-      "com.h2database" % "h2" % "1.3.166"
+      "com.h2database" % "h2" % "1.3.170"
     )
   )
 
