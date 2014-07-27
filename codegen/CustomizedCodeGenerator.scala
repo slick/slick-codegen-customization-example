@@ -26,7 +26,7 @@ object CustomizedCodeGenerator{
     val tables = H2Driver.getTables.list.filter(t => included contains t.name.name)
     createModel( tables, H2Driver )
   }
-  val codegen = new scala.slick.model.codegen.SourceCodeGenerator(model){
+  val codegen = new scala.slick.codegen.SourceCodeGenerator(model){
     // customize Scala entity name (case class, etc.)
     override def entityName = dbTableName => dbTableName match {
       case "COFFEES" => "Coffee"
