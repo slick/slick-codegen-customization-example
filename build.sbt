@@ -1,6 +1,14 @@
 
-fork in run := true
+/**
+  *  This is a slightly more advanced sbt setup using two projects.
+  *  The first one, "codegen" a customized version of Slick's
+  *  code-generator. The second one "main" depends on "codegen", which means
+  *  it is compiled after "codegen". "main" uses the customized
+  *  code-generator from project "codegen" as a sourceGenerator, which is run
+  *  to generate Slick code, before the code in project "main" is compiled.
+  */
 
+/** main project containing main source code depending on slick and codegen project */
 lazy val root = (project in file("."))
     .settings(sharedSettings)
     .settings(slick := slickCodeGenTask.value) // register manual sbt command)
@@ -16,7 +24,8 @@ lazy val codegen = project
 
 // shared sbt config between main project and codegen project
 lazy val sharedSettings = Seq(
-  scalaVersion := "2.11.7",
+  scalaVersion := "2.11.8",
+  scalacOptions := Seq("-feature", "-unchecked", "-deprecation"),
   libraryDependencies ++= List(
     "com.typesafe.slick" %% "slick" % "3.1.1",
     "org.slf4j" % "slf4j-nop" % "1.7.10",
