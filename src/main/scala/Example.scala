@@ -22,6 +22,6 @@ object Example extends App {
          .mkString("\n")
       ).map(println)
     },
-    20 seconds
+    20.seconds
   )
 }
