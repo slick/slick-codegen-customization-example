@@ -11,7 +11,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
  *  For a more advanced example see https://github.com/cvogt/slick-presentation/tree/scala-exchange-2013
  */
 object CustomizedCodeGenerator{
-  def main(args: Array[String]) = {
+  def main(args: Array[String]): Unit = {
     Await.ready(
       codegen.map(_.writeToFile(
         "slick.driver.H2Driver",
@@ -20,7 +20,7 @@ object CustomizedCodeGenerator{
         "Tables",
         "Tables.scala"
       )),
-      20 seconds
+      20.seconds
     )
   }
 
