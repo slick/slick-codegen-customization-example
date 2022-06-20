@@ -28,7 +28,7 @@ lazy val sharedSettings = Seq(
   scalacOptions := Seq("-feature", "-unchecked", "-deprecation"),
   libraryDependencies ++= List(
     "com.typesafe.slick" %% "slick" % "3.1.1",
-    "org.slf4j" % "slf4j-nop" % "1.7.10",
+    "org.slf4j" % "slf4j-nop" % "1.7.36",
     "com.h2database" % "h2" % "1.4.187"
   )
 )
